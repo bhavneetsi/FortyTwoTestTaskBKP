@@ -11,7 +11,7 @@ class ContactTestCase(LiveServerTestCase):
 	def tearDown(self):
 		self.browser.quit()
 
-	def test_contact_find_fixtures(self):
+	def test_contact_find_lables(self):
 		"""
 
 		Test for finding contact information on html page
@@ -24,7 +24,7 @@ class ContactTestCase(LiveServerTestCase):
     	#manage.py syncdb
     	#manage.py runserver
     	#open the browser and all data are in, loaded from fixtures 
-		#home_page = self.browser.get(self.live_server_url + '/')    	
+		home_page = self.browser.get(self.live_server_url + '/')    	
 		#start finding lables		
 		brand_element = self.browser.find_element_by_css_selector('.navbar-brand')
 		self.assertEqual('42 Coffee Cups Test Assignment', brand_element.text)
