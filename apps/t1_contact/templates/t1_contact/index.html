@@ -22,18 +22,18 @@
 
 	<div class="column">
 		<br><br>
-		<p><label for="Name">Name:</label>Bhavneet</p>
-		<p><label for="SurName">SurName:</label>Singh</p>
-		<p><label for="DateOfBirth">DateofBirth:</label>01/05/1983</p>
-		<p><label for="Bio">Bio:</label>Bio</p>
+		<p><label for="Name">Name:</label>{{ contact.name }}</p>
+		<p><label for="SurName">SurName:</label>{{contact.surname}}</p>
+		<p><label for="DateOfBirth">DateofBirth:</label>{{contact.dateofdbirth}}</p>
+		<p><label for="Bio">Bio:</label>{{contact.bio}}</p>
 	</div>
 	<p>Contacts</p>
 
 	<div class="column">
-		<p><label for="Email">Email:</label>bhavneetsi@gmail.com</p>
-		<p><label for="Jabber">Jabber:</label>bhavneetsi@42cc.co</p>
-		<p><label for="Skype">Skype:</label>bhavneet.si</p>
-		<p><label for="OtherContacts">OtherContacts:</label></p>
+		<p><label for="Email">Email:</label>{{contact.email}}</p>
+		<p><label for="Jabber">Jabber:</label>{{contact.jabber}}</p>
+		<p><label for="Skype">Skype:</label>{{contact.skype}}</p>
+		<p><label for="OtherContacts">{{contact.othercontacts}}</label></p>
 
 	</div>
 </div>
