@@ -28,4 +28,16 @@ class ContactTestCase(LiveServerTestCase):
 		#start finding lables		
 		brand_element = self.browser.find_element_by_css_selector('.navbar-brand')
 		self.assertEqual('42 Coffee Cups Test Assignment', brand_element.text)
+		
+		# find all other lables on the page name, surname, date of birth, bio, contacts
+		self.assertIsNotNone(self.browser.find_element_by_css_selector('label[for="Name"]'))
+		self.assertIsNotNone(self.browser.find_element_by_css_selector('label[for="SurName"]'))
+		self.assertIsNotNone(self.browser.find_element_by_css_selector('label[for="DateOfBirth"]'))
+		self.assertIsNotNone(self.browser.find_element_by_css_selector('label[for="Bio"]'))
+		self.assertIsNotNone(self.browser.find_element_by_css_selector('label[for="Email"]'))
+		self.assertIsNotNone(self.browser.find_element_by_css_selector('label[for="Jabber"]'))
+		self.assertIsNotNone(self.browser.find_element_by_css_selector('label[for="Skype"]'))
+		self.assertIsNotNone(self.browser.find_element_by_css_selector('label[for="OtherContacts"]'))
+
+		#placeholder
 		self.fail('Incomplete Test')

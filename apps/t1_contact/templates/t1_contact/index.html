@@ -1,1 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extra_head %}
+<style>
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 300px; 
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
 <a class="navbar-brand">42 Coffee Cups Test Assignment</a>
+
+<div class="row">
+
+	<div class="column">
+		<br><br>
+		<p><label for="Name">Name:</label>Bhavneet</p>
+		<p><label for="SurName">SurName:</label>Singh</p>
+		<p><label for="DateOfBirth">DateofBirth:</label>01/05/1983</p>
+		<p><label for="Bio">Bio:</label>Bio</p>
+	</div>
+	<p>Contacts</p>
+
+	<div class="column">
+		<p><label for="Email">Email:</label>bhavneetsi@gmail.com</p>
+		<p><label for="Jabber">Jabber:</label>bhavneetsi@42cc.co</p>
+		<p><label for="Skype">Skype:</label>bhavneet.si</p>
+		<p><label for="OtherContacts">OtherContacts:</label></p>
+
+	</div>
+</div>
+{% endblock %}
