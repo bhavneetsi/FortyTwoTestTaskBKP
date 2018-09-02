@@ -2,32 +2,72 @@ from django.test import TestCase,RequestFactory
 
 from apps.t1_contact.views import index
 from django.db.models.query import QuerySet
+from t1_contact.models import Contact
+from django.core.urlresolvers import reverse
 
 class IndexViewTestCase(TestCase):
 
 	def setUp(self):
 
-		self.factory = RequestFactory()
+		#self.factory = RequestFactory()
+		self.url = reverse('index')
+		self.response = self.client.get(self.url)
 
+	def test_index_view_render(self):
 
-
-	def test_index_view(self):
-		""" basic test for index view to return status 200 as response
+		""" 
+		basic test for index view to return status 200 as response
+		and uses correct template
+		"""
+    	
+		contact = Contact.objects.first()
+		self.assertEqual(self.response.status_code,200)
+		self.assertContains(self.response, 'Contact')
+		#self.assertTemplateUsed(self.response, 'index.html')
+		self.assertEqual(self.response.context['contact'], contact)
+	
+	def test_index_view_render(self):
+		""" 
+		basic test for index view to return status 200 as response
 		and uses correct template
 
 		"""
-
-		request = self.factory.get('/')
-		with self.assertTemplateUsed('t1_contact/index.html'):
-
-			response = index(request)
-			self.assertEqual(response.status_code,200)
-
+		contact = Contact.objects.first()
+		self.assertEqual(self.response.status_code,200)
+		self.assertContains(self.response, 'Contact')
+		#self.assertTemplateUsed(self.response, 'index.html')
+		self.assertEqual(self.response.context['contact'], contact)
 
 
 	def test_index_view_return_contact(self):
+
 		"""
-		Test to check if index view would return contact object if available
+		Test to check if index view would return all contact object fields
 		"""
-		response = self.client.get('/')
-		self.assertIs(type(response.context['contact']),QuerySet)
+		
+		contact = Contact.objects.first()
+		fields = ('name', 'surname','dateofdbirth','Bio', 'email', 'jabber', 'skype','othercontacts')	
+		
+		for field in fields:
+			
+			self.assertContains(self.response, getattr(contact, field))
+
+	
+	def test_index_view_no_data_in_db(self):
+
+		"""
+		Test index view when there is no data in db
+		"""
+		Contact.objects.all().delete()
+		contact = Contact.objects.first()
+		self.assertEqual(Contact.objects.count(), 0)
+		self.assertEqual(contact, None)
+		self.assertContains(self.response, 'Contact details not in db.')
+		
+		
+	def test_more_then_one_record_in_db(self):
+		"""Test contact view, should return first entry from the DB"""
+		Contact.objects.create(name='Bhavneet1',surname='singh',dateofdbirth='1983-05-01')
+		contacts=Contact.objects.all()
+		self.assertTrue(Contact.objects.count(), 2)
+		self.assertEqual(contacts[0], self.response.context['contact'])

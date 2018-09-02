@@ -12,7 +12,7 @@ class ContactModelTestCase(TestCase):
 
 			name='Bhavneet',
 			surname='Singh',
-			dateofbirth='1983-05-01',
+			dateofdbirth='1983-05-01',
 			bio='',
 			email='bhavneetsi@gmail.com',
 			jabber='bhavneetsi@42cc.co',
@@ -25,5 +25,5 @@ class ContactModelTestCase(TestCase):
 	
 	def test_contact_basic(self):
 
-		self.assertEqual(self.contact.name,'Bhavneet')
+		self.assertEqual(self.contact.name,'Bhavneet')	
 

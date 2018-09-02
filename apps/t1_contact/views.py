@@ -6,5 +6,5 @@ from .models import Contact
 
 
 def index(request):
-	context= {'contact': Contact.objects.get(pk=1)}
+	context= {'contact': Contact.objects.first()}
 	return render_to_response('t1_contact/index.html',context)
