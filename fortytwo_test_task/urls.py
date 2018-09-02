@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
+from t1_contact.views import Index
 admin.autodiscover()
 
 urlpatterns = patterns(
@@ -8,6 +9,6 @@ urlpatterns = patterns(
     # Examples:
     # url(r'^$', 'fortytwo_test_task.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$','apps.t1_contact.views.index',name='index'),
+    url(r'^$',Index.as_view(),name='index'),
     url(r'^admin/', include(admin.site.urls)),
 )

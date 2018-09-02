@@ -5,7 +5,7 @@ from django.test import TestCase
 
 from django.core.urlresolvers import resolve
 
-from apps.t1_contact.views import index
+from t1_contact.views import Index
 
 class IndexUrlTestCase(TestCase):
 
@@ -17,4 +17,4 @@ class IndexUrlTestCase(TestCase):
 		"""
 
 		root=resolve('/')
-		self.assertEqual(root.func,index)
+		self.assertEqual(root.view_name,'index')
