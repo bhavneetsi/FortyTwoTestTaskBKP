@@ -44,8 +44,6 @@ INSTALLED_APPS = (
     'apps.fortytwoapps',
     'apps.hello',
     'south'
-    
-
 )
 
 MIDDLEWARE_CLASSES = (
@@ -132,4 +130,4 @@ TEMPLATE_DIRS = (
 SOUTH_TESTS_MIGRATE = False
 
 
-FIXTURE_DIRS = '/fixtures/' 
+FIXTURE_DIRS = '/fixtures/'
