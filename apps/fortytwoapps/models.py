@@ -7,7 +7,7 @@ class Contact(models.Model):
 
 	name = models.CharField(max_length=100)
 	surname = models.CharField(max_length=100,blank=True,null=True)
-	dateofdbirth=models.DateField()
+	dateofbirth=models.DateField()
 	bio=models.CharField(max_length=500,blank=True,null=True)
 	email=models.CharField(max_length=100,blank=True,null=True)
 	jabber=models.CharField(max_length=100,blank=True,null=True)

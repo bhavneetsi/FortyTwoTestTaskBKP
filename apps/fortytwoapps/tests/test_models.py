@@ -12,7 +12,7 @@ class ContactModelTestCase(TestCase):
 
 			name='Bhavneet',
 			surname='Singh',
-			dateofdbirth='1983-05-01',
+			dateofbirth='1983-05-01',
 			bio='',
 			email='bhavneetsi@gmail.com',
 			jabber='bhavneetsi@42cc.co',
