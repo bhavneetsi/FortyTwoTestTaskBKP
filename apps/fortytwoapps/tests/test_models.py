@@ -1,5 +1,5 @@
 from django.test import TestCase
-from t1_contact.models import Contact 
+from fortytwoapps.models import Contact 
 
 
 

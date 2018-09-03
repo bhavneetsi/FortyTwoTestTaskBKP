@@ -1,8 +1,8 @@
 from django.test import TestCase,RequestFactory
 
-from t1_contact.views import Index
+from fortytwoapps.views import Index
 from django.db.models.query import QuerySet
-from t1_contact.models import Contact
+from fortytwoapps.models import Contact
 from django.core.urlresolvers import reverse
 
 class IndexViewTestCase(TestCase):
@@ -27,7 +27,7 @@ class IndexViewTestCase(TestCase):
 		
 
 		self.assertEqual(self.response.status_code,200)
-		self.assertTemplateUsed(self.response, 't1_contact/index.html')
+		self.assertTemplateUsed(self.response, 'fortytwoapps/index.html')
 		self.assertEqual(self.response.context_data['contact'], self.contact)
 
 
@@ -53,8 +53,10 @@ class IndexViewTestCase(TestCase):
 		Contact.objects.all().delete()
 		contact = Contact.objects.first()
 		self.assertEqual(Contact.objects.count(), 0)
+		self.url = reverse('index')
+		self.response = self.client.get(self.url)
 		self.assertEqual(contact, None)
-		self.assertContains(self.response, 'Contact details not in db.')
+		self.assertContains(self.response,'Contact details not in db.')
 		
 		
 	def test_more_then_one_record_in_db(self):

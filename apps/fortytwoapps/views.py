@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 
 
 class Index(TemplateView):
-	template_name="t1_contact/index.html"
+	template_name="fortytwoapps/index.html"
 
 	def get_context_data(self,**kwargs):
 		context=super(Index,self).get_context_data(**kwargs)

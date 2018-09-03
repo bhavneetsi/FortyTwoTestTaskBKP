@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from t1_contact.views import Index
+from fortytwoapps.views import Index
 admin.autodiscover()
 
 urlpatterns = patterns(

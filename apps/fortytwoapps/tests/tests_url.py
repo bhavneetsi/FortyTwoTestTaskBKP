@@ -5,7 +5,7 @@ from django.test import TestCase
 
 from django.core.urlresolvers import resolve
 
-from t1_contact.views import Index
+from fortytwoapps.views import Index
 
 class IndexUrlTestCase(TestCase):
 

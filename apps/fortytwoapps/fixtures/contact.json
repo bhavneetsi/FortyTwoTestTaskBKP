@@ -1,0 +1,36 @@
+[
+  {
+    "model": "fortytwoapps.contact",
+    "pk": 1,
+    "fields": {
+      "name": "Bhavneet",
+      "surname": "Singh",
+      "dateofdbirth":"1983-05-01",
+      "bio":"",
+      "email":"bhavneetsi@gmail.com",
+      "jabber":"bhavneetsi@42cc.co",
+      "skype":"bhavneet.si",
+      "othercontacts":""
+    }
+  },
+
+    {
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2017-08-11T14:46:17.823Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$12000$iRBiHyjya8O0$YJgzo4X89ddF7NGHCIlZhzPLruqvlcsvMh311ypGWOk=",
+      "email": "bhavneetsi@gmail.com",
+      "date_joined": "2018-09-03T13:44:05.890Z"
+    }
+
+  }
+  ]
