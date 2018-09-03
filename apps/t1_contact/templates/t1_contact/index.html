@@ -1,40 +1,35 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block extra_head %}
-<style>
-/* Create two equal columns that floats next to each other */
-.column {
-    float: left;
-    width: 30%;
-    padding: 10px;
-    height: 300px; 
-}
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-</style>
-<a class="navbar-brand">42 Coffee Cups Test Assignment</a>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6"><h2>42 Coffee Cups Test Assignment</h2></div>
+    </div>
 
+
+{% if contact %}
 <div class="row">
 
-	<div class="column">
+	<div class="col-md-6">
 		<br><br>
-		<p><label for="Name">Name:</label>{{ contact.name }}</p>
-		<p><label for="SurName">SurName:</label>{{contact.surname}}</p>
-		<p><label for="DateOfBirth">DateofBirth:</label>{{contact.dateofdbirth}}</p>
-		<p><label for="Bio">Bio:</label>{{contact.bio}}</p>
+		<div><span id="Name"><strong>Name:</strong></span>{{ contact.name }}</div>
+		<div><span id="SurName"><strong>SurName:</strong></span>{{contact.surname}}</div>
+		<div><span id="DateOfBirth"><strong>DateofBirth:</strong></span>{{contact.dateofdbirth}}</div>
+		<div><span id="Bio"><strong>Bio:</strong></span>{{ contact.bio|linebreaks }}</div>
 	</div>
-	<p>Contacts</p>
 
-	<div class="column">
-		<p><label for="Email">Email:</label>{{contact.email}}</p>
-		<p><label for="Jabber">Jabber:</label>{{contact.jabber}}</p>
-		<p><label for="Skype">Skype:</label>{{contact.skype}}</p>
-		<p><label for="OtherContacts">{{contact.othercontacts}}</label></p>
+	<div class="col-md-6">
+		<div><b>Contacts</b></div>
+		<div><span id="Email"><strong>Email:</strong></span>{{contact.email}}</div>
+		<div><span id="Jabber"><strong>Jabber:</strong></span>{{contact.jabber}}</div>
+		<div><span id="Skype"><strong>Skype:</strong></span>{{contact.skype}}</div>
+		<div><span id="OtherContacts"><strong>OtherContacts</strong></span>{{contact.othercontacts|linebreaks}}</div>
 
 	</div>
 </div>
+</div>
+{%else %}
+<p>Contact details not in db.</p>
+{% endif %}
 {% endblock %}

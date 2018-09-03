@@ -10,7 +10,8 @@ class IndexViewTestCase(TestCase):
 	def setUp(self):
 
 		#self.factory = RequestFactory()
-		contact=Contact.objects.create(name='Bhavneet1',surname='singh',dateofdbirth='1983-05-01',bio='',email='bhavneetsi@gmail.com',jabber='bhavneetsi@42cc.co',skype='bhavneet.si',othercontacts='')
+		contact=Contact.objects.create(name='Bhavneet1',surname='singh',dateofdbirth='1983-05-01',bio='developer',
+			email='bhavneetsi@gmail.com',jabber='bhavneetsi@42cc.co',skype='bhavneet.si',othercontacts='+91946121818')
 		self.contact = Contact.objects.first()
 		self.url = reverse('index')
 		self.response = self.client.get(self.url)
