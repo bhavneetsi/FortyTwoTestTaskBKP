@@ -1,6 +1,6 @@
 from django.test import TestCase
 from fortytwoapps.models import Request
-
+from django.http import request,HttpResponse
 
 class TestMiddleWare(TestCase):
 
@@ -14,7 +14,8 @@ class TestMiddleWare(TestCase):
         """
         Test if request that are being made are getting logged in db
         """
-        self.assertEqual(self.client.get('/').status_code,200)
+        self.response = self.client.get('/')
+        self.assertEqual(self.response.status_code,200)
         self.assertEqual(Request.objects.all().count(),1)
 
     def test_nopage_request_logged_in_db(self):
@@ -31,6 +32,6 @@ class TestMiddleWare(TestCase):
         self.client.get('/')
         self.assertEqual(Request.objects.all().count(),1)
         self.assertEqual(Request.objects.first().url,'/')
-        self.assertEqual(Request.objects.first().method,'get')
+        self.assertEqual(Request.objects.first().method,'GET')
         self.assertEqual(Request.objects.first().viewed,False)
 

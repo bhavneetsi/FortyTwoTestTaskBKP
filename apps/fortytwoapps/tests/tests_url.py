@@ -26,7 +26,7 @@ class RequestUrlTestCase(TestCase):
     def test_request_url(self):
         """test for request url"""
 
-        req=resolve('requests/')
+        req=resolve('/requests/')
         self.assertEqual(req.view_name,'requests')
 
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import request,HttpResponse
 from django.shortcuts import render_to_response
-from .models import Contact
+from .models import Contact,Request
 from django.views.generic import TemplateView,ListView
 # Create your views here.
 
@@ -20,6 +20,6 @@ class Requests(ListView):
     view to handle request page
 
     """
-    pass
-
+    model=Request
+    template_name='fortytwoapps/requests.html'
         
