@@ -22,4 +22,7 @@ class Requests(ListView):
     """
     model=Request
     template_name='fortytwoapps/requests.html'
+
+
+    
         
