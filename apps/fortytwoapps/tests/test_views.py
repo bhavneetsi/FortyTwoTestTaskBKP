@@ -98,3 +98,12 @@ class TestRequestView(TestCase):
         self.assertFalse(all(r.viewed for r in Request.objects.all()))
         new_requests = loads(self.response.content)['new_requests']
         self.assertEqual(new_requests, 20)
+
+    def test_request_view_render(self):
+        """
+        basic test for request view to return status 200 as response
+        and uses correct template
+        """
+        self.response = self.client.get('/requests/')
+        self.assertEqual(self.response.status_code, 200)
+        self.assertTemplateUsed(self.response, 'fortytwoapps/requests.html')
