@@ -8,11 +8,9 @@ class Requestlog():
 
     """
 
-    def process_request(self,request):
-        has_viewed=request.path == reverse('requests')
+    def process_request(self, request):
+        has_viewed = request.path == reverse('requests')
         if not request.is_ajax():
             Request.objects.create(url=request.path,
                                    method=request.method,
                                    viewed=has_viewed)
-
-            

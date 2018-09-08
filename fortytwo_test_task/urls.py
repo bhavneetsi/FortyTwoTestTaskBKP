@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from fortytwoapps.views import Index,Requests
+from fortytwoapps.views import Index, Requests
 admin.autodiscover()
 
 urlpatterns = patterns(
@@ -10,6 +10,6 @@ urlpatterns = patterns(
     # url(r'^$', 'fortytwo_test_task.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', Index.as_view(), name='index'),
-    url(r'^requests/',Requests.as_view(),name='requests'),
+    url(r'^requests/', Requests.as_view(), name='requests'),
     url(r'^admin/', include(admin.site.urls)),
 )

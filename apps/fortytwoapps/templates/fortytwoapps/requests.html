@@ -23,7 +23,7 @@
     			<tr>
     				<td>{{ request.url }} </td>
     				<td>{{ request.method }} </td>
-    				<td>{{ request.time }} </td>
+    				<td>{{ request.time | date:"M d Y H:i:s" }} </td>
     			</tr>
     			{% endfor %}
     		</tbody>		
@@ -33,3 +33,13 @@
 <hr>
     <a class="btn" href="{% url 'index' %}"> Home </a>
 {% endblock %}
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/request.js' %}"></script> 
+<!--	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="/media/tk/New Volume1/bhavneet/Py/VirEnv/FortyTwoTestTask/apps/fortytwoapps/static/js/request.js"></script> -->
+    <script>
+    	
+   	 Requests();
+    </script>
+{% endblock scripts %}
