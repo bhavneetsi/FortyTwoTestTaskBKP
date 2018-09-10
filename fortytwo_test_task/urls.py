@@ -1,7 +1,8 @@
 from django.conf.urls import patterns, include, url
-
+from django.conf import settings
 from django.contrib import admin
 from fortytwoapps.views import Index, Requests
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 admin.autodiscover()
 
 urlpatterns = patterns(
@@ -14,5 +15,11 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('django.contrib.auth.urls',
                                namespace='accounts')),
+    url(r'^updatecontact/',UpdateContact.as_view(),name='update_contact'),
 )
 
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += patterns('',
+                        url(r'^uploads/(?P<path>.*)$',
+                            'django.views.static.serve',
+                            {'document_root': settings.MEDIA_ROOT}))

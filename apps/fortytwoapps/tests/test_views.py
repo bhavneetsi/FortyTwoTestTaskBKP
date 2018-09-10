@@ -107,3 +107,50 @@ class TestRequestView(TestCase):
         self.response = self.client.get('/requests/')
         self.assertEqual(self.response.status_code, 200)
         self.assertTemplateUsed(self.response, 'fortytwoapps/requests.html')
+
+
+class TestUpdateContactView(TestCase):
+
+    def setUp(self):
+        self.url = reverse('update_contact')
+        self.client.login(username='admin', password='admin')
+        self.response = self.client.get(self.url)
+
+    def test_update_contact_view_render(self):
+        """
+        Test to check if view is retrself.assertEqual(response.url,
+                         '/accounts/login/?next=/update_profile_page/1/')
+ning success status code and rendringself.assertEqual(response.url,
+                         '/accounts/login/?next=/update_profile_page/1/')
+
+        correct template
+        """
+        self.assertEqual(self.response.status_code,200)
+        self.assertTemplateUsed(self.response,'fortytwoapps/update_contact.html')
+    
+    def test_update_contact_view_unauthorised(self):
+        """
+        Test if unauthorised request is redirected to login page 
+        """
+        self.client.logout()
+        self.response = self.client.get(self.url)
+        self.assertEqual(self.response.status_code,302)
+        self.assertEqual(response.url,
+                         '/accounts/login/?next=/update_profile_page/1/')
+
+    def test_for_all_fields_presented_back(self):
+        """
+        Test to check if all fields from model are made available
+        to be updated.
+        """
+        fields = ('name', 'surname', 'bio', 'email', 'jabber', 'skype',
+                  'othercontacts', "dateofbirth", "photo")
+
+        for field in fields:
+            self.assertContains(self.response, field)
+
+
+
+
+
+

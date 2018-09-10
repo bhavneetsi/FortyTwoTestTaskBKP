@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 
 # Create your models here.
 
@@ -13,7 +14,7 @@ class Contact(models.Model):
     jabber = models.CharField(max_length=100, blank=True, null=True)
     skype = models.CharField(max_length=100, blank=True, null=True)
     othercontacts = models.CharField(max_length=500, blank=True, null=True)
-
+    photo = models.ImageField(upload_to='photos', blank=True, null=True)
 
 class Request(models.Model):
     """Request datamodel
