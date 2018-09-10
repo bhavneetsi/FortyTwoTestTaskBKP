@@ -29,9 +29,15 @@
 	</div>
 </div>
 </div>
+<div class="row">
+    <div class="col-md-6 text-center">
+      	<img src="{{ contact.photo.url }}" height="200" width="200"/>
+    </div>
+    </div>
 {%else %}
 <p>Contact details not in db.</p>
 {% endif %}
 <hr>
     <a class="btn" href="{% url 'requests' %}"> Requests </a>
+    <a class="btn" href="{% url 'index' %}">Edit Contact </a>
 {% endblock %}
