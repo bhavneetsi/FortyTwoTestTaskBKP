@@ -2,29 +2,46 @@ from django.test import TestCase
 from fortytwoapps.models import Contact, Request
 from datetime import date
 from factory import fuzzy
+from PIL import Image
 
 
 class ContactModelTestCase(TestCase):
     """Test for Model datatype
     """
     def setUp(self):
-        self.contact = Contact.objects.create(
-            name='Bhavneet',
-            surname='Singh',
-            dateofbirth='1983-05-01',
-            bio='',
-            email='bhavneetsi@gmail.com',
-            jabber='bhavneetsi@42cc.co',
-            skype='bhavneet.si',
-            othercontacts=''
+        Contact.objects.create(
+                               name='Bhavneet',
+                               surname='Singh',
+                               dateofbirth='1983-05-01',
+                               bio='Bio of bhavneet',
+                               email='bhavneetsi@gmail.com',
+                               jabber='bhavneetsi@42cc.co',
+                               skype='bhavneet.si',
+                               othercontacts='+919461218818',
+                               photo="/img/img.jpg"
         )
 
     def test_contact_basic(self):
         """
         Test for Contact model
         """
+        self.contact = Contact.objects.first()
         self.assertEqual(self.contact.name, 'Bhavneet')
+        self.assertEqual(self.contact.surname,'Singh')
+        self.assertEqual(self.contact.dateofbirth,datetime.date(1983, 5, 1))
+        self.assertEqual(self.contact.bio,'Bio of bhavneet')
+        self.assertEqual(self.contact.email,'bhavneetsi@gmail')
+        self.assertEqual(self.contact.jabber,'bhavneetsi@42cc.co')
+        self.assertEqual(self.contact.skype,'bhavneet.si')
+        self.assertEqual(self.contact.photo,'/img/img.jpg')
 
+    def test_image_size(self):
+        """
+        Test if size of stored image is as per size requirements of 200*200
+        """
+            required_photo_size=(200,200)
+            uploaded_photo_size = Image.open(self.contact.photo.path).size
+            self.assertEqual(required_photo_size,uploaded_photo_size)
 
 class RequestsModelTestCase(TestCase):
     """Test for RequestModel
