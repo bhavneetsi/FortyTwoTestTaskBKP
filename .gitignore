@@ -16,3 +16,4 @@ media
 .env
 geckodriver.log
 static
+uploads
