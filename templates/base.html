@@ -21,7 +21,8 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">     
         
@@ -34,13 +35,14 @@
     <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
 
         {% block auth %}
+        <div class="container-fluid">
         <div class="nav navbar-nav navbar-right nav_my">
                 {% if user.is_authenticated %}
                     <a href="{% url 'accounts:logout' %}?next=/"> <span class="glyphicon glyphicon-user"></span>Logout </a>
                 {% else %}
                     <a href="{% url 'accounts:login' %}?next=/"> <span class="glyphicon glyphicon-log-in"></span> Login </a>
                 {% endif %}
-
+        </div>
         </div>        
         {% endblock %}
 

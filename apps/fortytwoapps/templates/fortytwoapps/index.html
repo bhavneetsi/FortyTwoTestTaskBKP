@@ -31,7 +31,11 @@
 </div>
 <div class="row">
     <div class="col-md-6 text-center">
+     {% if contact.photo %}
       	<img src="{{ contact.photo.url }}" height="200" width="200"/>
+    {% else %}
+        <img src="#" height="200" width="200"/>    		
+    {% endif %}  
     </div>
     </div>
 {%else %}
@@ -39,5 +43,7 @@
 {% endif %}
 <hr>
     <a class="btn" href="{% url 'requests' %}"> Requests </a>
-    <a class="btn" href="{% url 'index' %}">Edit Contact </a>
+    {% if contact.pk %}
+    	<a class="btn" href="{% url 'update_contact' contact.pk %}">Edit Contact </a>
+    {% endif %}	
 {% endblock %}

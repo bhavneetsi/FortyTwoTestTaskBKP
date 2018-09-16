@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
-from fortytwoapps.views import Index, Requests
+from fortytwoapps.views import Index, Requests, UpdateContact
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 admin.autodiscover()
 
@@ -15,7 +15,7 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('django.contrib.auth.urls',
                                namespace='accounts')),
-    url(r'^updatecontact/',UpdateContact.as_view(),name='update_contact'),
+    url(r'^updatecontact/(?P<pk>\d+)/$',UpdateContact.as_view(),name='update_contact'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

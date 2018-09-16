@@ -1,6 +1,6 @@
 from django.db import models
 from PIL import Image
-
+from django.core.urlresolvers import reverse
 # Create your models here.
 
 
@@ -15,6 +15,10 @@ class Contact(models.Model):
     skype = models.CharField(max_length=100, blank=True, null=True)
     othercontacts = models.CharField(max_length=500, blank=True, null=True)
     photo = models.ImageField(upload_to='photos', blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('update_contact', kwargs={'pk': self.id})
+
 
 class Request(models.Model):
     """Request datamodel
