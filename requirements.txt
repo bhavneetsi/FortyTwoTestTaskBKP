@@ -1,5 +1,5 @@
 42cc-pystyle==0.0.16
-Django==1.6.7
+Django==1.11.29
 django-bootstrap-form==3.3
 django-bootstrap-static==4.0.0
 factory-boy==2.9.2
