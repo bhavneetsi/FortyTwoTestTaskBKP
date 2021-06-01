@@ -15,4 +15,4 @@ python-dateutil==2.6.1
 selenium==3.14.0
 six==1.10.0
 South==1.0.2
-urllib3==1.23
+urllib3==1.26.5
